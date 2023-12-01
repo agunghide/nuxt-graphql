@@ -1,0 +1,11 @@
+query Capsules($limit: Int, $find: CapsulesFind) {
+  capsules(limit: $limit, find: $find) {
+    dragon {
+      crew_capacity
+      description
+    }
+    id
+    landings
+    type
+  }
+}
