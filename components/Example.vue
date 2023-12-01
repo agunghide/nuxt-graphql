@@ -1,30 +1,26 @@
-<!-- Please remove this file from your project -->
+
 <template>
-  <code>
-    {{
-      JSON.stringify(response)
-    }}
-  </code>
+  <div />
 </template>
 
 <script>
-import capsulesQuery from '@/query/capsules'
+// import capsulesQuery from '@/query/capsules'
+// import capsulesWithVariables from '@/query/capsulesWithVariables'
+import capsulesWithSkip from '@/query/capsulesWithSkip'
 
 export default {
   name: 'NuxtExample',
-  data() {
-    return {
-      response: null
-    }
-  },
   mounted() {
     this.getData()
   },
   methods: {
     async getData() {
       try {
-        this.response = await this.$apollo.query({
-          query: capsulesQuery
+        await this.$apollo.query({
+          query: capsulesWithSkip,
+          variables: {
+            skipDragon: true
+          }
         })
       } catch (error) {
         console.log(error)

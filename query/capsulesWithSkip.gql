@@ -1,0 +1,11 @@
+query Capsules($skipDragon: Boolean! = false) {
+  capsules {
+    dragon @skip(if: $skipDragon) {
+      crew_capacity
+      description
+    }
+    id
+    landings
+    type
+  }
+}
